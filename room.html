@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>The Grand Tulip - Platinum Rooms</title>
+    <link rel="shortcut icon" href="img/favicon.png" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Barlow&amp;family=Barlow+Condensed&amp;family=Gilda+Display&amp;display=swap">
+    <link rel="stylesheet" href="css/plugins.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,500;1,600&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="http://fonts.googleapis.com/css?family=Poppins:400,500%7CTeko:300,400,500%7CMaven+Pro:500">
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        /* Platinum Theme Colors */
+        :root {
+            --platinum-primary: #e5e4e2;
+            --platinum-secondary: #d3d3d3;
+            --platinum-accent: #a8a9ad;
+            --platinum-dark: #333333;
+            --platinum-gold: #d4af37;
+            --platinum-light: #f8f8f8;
+        }
+
+        /* Banner Enhancements */
+        .banner-header {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('img/rooms/room-banner.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .banner-header h1 {
+            font-family: 'Gilda Display', serif;
+            font-size: 5rem;
+            letter-spacing: 3px;
+            color: var(--platinum-primary);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .banner-header h5 {
+            color: var(--platinum-gold);
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Room Details Section */
+        .rooms-page {
+            background-color: var(--platinum-light);
+            padding: 80px 0;
+        }
+
+        .section-subtitle {
+            color: var(--platinum-gold);
+            font-size: 1rem;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-family: 'Gilda Display', serif;
+            font-size: 3rem;
+            color: var(--platinum-dark);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--platinum-gold);
+            margin: 15px 0 25px;
+        }
+
+        .room_d_main_text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        /* Image Slider Styling */
+        .room-slider-container {
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .room-slider {
+            width: 100%;
+            height: 500px;
+            position: relative;
+        }
+
+        .room-slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .room-slider img.active {
+            opacity: 1;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            right: 0;
+            text-align: center;
+
+        }
+
+        .slider-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--platinum-gold);
+            transform: scale(1.2);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .slider-arrow:hover {
+            background: var(--platinum-gold);
+        }
+
+        .slider-arrow.prev {
+            left: 20px;
+        }
+
+        .slider-arrow.next {
+            right: 20px;
+        }
+
+        /* Rates Styling */
+        .rates {
+            background-color: white;
+            padding: 25px;
+            border-left: 4px solid var(--platinum-gold);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 30px 0;
+        }
+
+        .rates p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .rates span {
+            color: var(--platinum-gold);
+            font-weight: 600;
+        }
+
+        /* Amenities List - Redesigned */
+        .amenities-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .amenities-title {
+            font-family: 'Gilda Display', serif;
+            font-size: 1.8rem;
+            color: var(--platinum-dark);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--platinum-secondary);
+            position: relative;
+        }
+
+        .amenities-title:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--platinum-gold);
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            background: var(--platinum-light);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .amenity-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .amenity-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--platinum-gold);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .amenity-text {
+            flex-grow: 1;
+        }
+
+        .amenity-text h4 {
+            font-size: 1rem;
+            color: var(--platinum-dark);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .amenity-text p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Booking Section */
+        .testimonials {
+            position: relative;
+        }
+
+        .background {
+            padding: 80px 0;
+        }
+
+        .booking-box {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-box:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--platinum-gold);
+        }
+
+        .head-box h6 {
+            color: var(--platinum-gold);
+            letter-spacing: 2px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .head-box h4 {
+            font-family: 'Gilda Display', serif;
+            font-size: 2rem;
+            color: var(--platinum-dark);
+            margin-bottom: 30px;
+        }
+
+        /* Button Styling */
+        .butn-dark {
+            transition: all 0.3s ease;
+        }
+
+        .butn-dark a {
+            background: var(--platinum-dark);
+            color: white;
+            padding: 15px 30px;
+            display: inline-block;
+            border-radius: 3px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .butn-dark a:hover {
+            background: var(--platinum-gold);
+            text-decoration: none;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-form1-submit {
+            background: var(--platinum-gold);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            width: 100%;
+            border-radius: 3px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-form1-submit:hover {
+            background: var(--platinum-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner-header h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .room-slider {
+                height: 350px;
+            }
+
+            .booking-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-bg"></div>
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="preloader-position loader"> <span></span> </div>
+        </div>
+    </div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Header Banner -->
+    <div class="section-padding valign bg-img bg-fixed" data-overlay-dark="3"
+        data-background="img/rooms/room-banner.jpg" style="padding: 160px 0px;">
+
+
+        <!-- Banner Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 caption mt-90">
+                    <h5>The Grand Tulip</h5>
+                    <h1> Room</h1>
+                    <div class="banner-breadcrumb">
+                        <a href="index.html"><span>Home</span></a>
+                        <i class="fas fa-chevron-right" style="color: white;"></i>
+                        <span>Room</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Side Menu (Copied from index.html) -->
+     
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <div class="logo-wrapper navbar-brand valign">
+                <a href="index.html">
+                    <div class="logo">
+                        <img src="img/lakeview_logo.png" class="logo-img" alt="">
+                    </div>
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar"><i class="ti-line-double"></i></span> </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item dropdown"> <span class="nav-link">Stay & Rooms <i
+                                class="ti-angle-down"></i></span>
+                        <ul class="dropdown-menu last">
+                            <li class="dropdown-item"><a href="room.html">Rooms</a></li>
+                            <li class="dropdown-item"><a href="ac-room.html"> AC Rooms</a></li>
+                            <li class="dropdown-item"><a href="tulip-suit.html">Suite</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="facilites.html">Dining & Bar</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="attractions.html">Wedding & Events </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="gallery.html"> Gallery </a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Room Content -->
+    <section class="rooms-page section-padding" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="room_d_main_text">
+                        <!-- Image Slider -->
+                        <div class="room-slider-container">
+                            <div class="room-slider">
+                                <img src="img/rooms/14.jpg" alt="Platinum Room Interior" class="active">
+                                <img src="img/rooms/16.jpg" alt="Platinum Room Bed">
+                                <img src="img/rooms/17.jpg" alt="Platinum Room Bathroom">
+                                <img src="img/rooms/20.jpg" alt="Platinum Room View">
+                                <img src="img/rooms/21.jpg" alt="Platinum Room Seating Area">
+                            </div>
+                            <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
+                            <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
+                            <div class="slider-nav">
+                                <span class="slider-dot active"></span>
+                                <span class="slider-dot"></span>
+                                <span class="slider-dot"></span>
+                                <span class="slider-dot"></span>
+                                <span class="slider-dot"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-subtitle">The Grand Tulip</div>
+                    <div class="section-title">Platinum Rooms</div>
+                    <p>The Platinum room reaffirms the understated grandeur & elegance of The Grand Tulip. Experience
+                        luxury & extravagance with immaculate service, beautifully appointed rooms & state-of-the-art
+                        amenities that will make your stay a memorable experience. Our French windows pamper you with a
+                        cozy sit-out where you can enjoy your cup of tea while admiring the view.</p>
+
+                    <div class="rates">
+                        <p>1. For Single
+                            <span>Rs. 3200/- Per Night</span>
+                        </p>
+                        <p>2. For Double
+                            <span>Rs. 3800/- Per Night</span>
+                        </p>
+                    </div>
+
+                    <h6>Extra Adult And Extra Child Rates</h6>
+                    <p>Extra Adults & Children beds are available at Rs. 1000+Gst per day.</p>
+
+                    <div class="butn-dark mt-15 mb-30">
+                        <a href="https://asiatech.in/booking_engine/index3?token=NTM1OA=="><span>Book Now</span></a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Redesigned Amenities Section -->
+                    <div class="amenities-section">
+                        <h3 class="amenities-title">Room Amenities</h3>
+                        <div class="amenities-grid">
+                            <div class="amenity-item">
+                                <div class="amenity-icon">
+                                    <i class="fas fa-bath"></i>
+                                </div>
+                                <div class="amenity-text">
+                                    <h4>Luxury Bathroom</h4>
+                                    <p>Attached glass bathroom with premium fixtures</p>
+                                </div>
+                            </div>
+
+                            <div class="amenity-item">
+                                <div class="amenity-icon">
+                                    <i class="fas fa-wifi"></i>
+                                </div>
+                                <div class="amenity-text">
+                                    <h4>High-Speed WiFi</h4>
+                                    <p>Complimentary high-speed internet access</p>
+                                </div>
+                            </div>
+
+                            <div class="amenity-item">
+                                <div class="amenity-icon">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="amenity-text">
+                                    <h4>Medical Service</h4>
+                                    <p>24/7 doctor on call service available</p>
+                                </div>
+                            </div>
+
+                            <div class="amenity-item">
+                                <div class="amenity-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="amenity-text">
+                                    <h4>Complimentary Breakfast</h4>
+                                    <p>Daily breakfast included with your stay</p>
+                                </div>
+                            </div>
+
+                            <div class="amenity-item">
+                                <div class="amenity-icon">
+                                    <i class="fas fa-toilet-paper"></i>
+                                </div>
+                                <div class="amenity-text">
+                                    <h4>Premium Linens</h4>
+                                    <p>High-quality towels and bed linens</p>
+                                </div>
+                            </div>
+
+                            <div class="amenity-item">
+                                <div class="amenity-icon">
+                                    <i class="fas fa-fan"></i>
+                                </div>
+                                <div class="amenity-text">
+                                    <h4>Climate Control</h4>
+                                    <p>Furnished air conditioned room</p>
+                                </div>
+                            </div>
+
+                            <div class="amenity-item">
+                                <div class="amenity-icon">
+                                    <i class="fas fa-tv"></i>
+                                </div>
+                                <div class="amenity-text">
+                                    <h4>Entertainment</h4>
+                                    <p>32" LED TV with satellite channels</p>
+                                </div>
+                            </div>
+
+                            <div class="amenity-item">
+                                <div class="amenity-icon">
+                                    <i class="fas fa-mug-hot"></i>
+                                </div>
+                                <div class="amenity-text">
+                                    <h4>Tea/Coffee</h4>
+                                    <p>In-room tea and coffee making facilities</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation & Booking Form -->
+    <section class="testimonials">
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg"
+            data-overlay-dark="2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 mb-30 mt-30">
+                        <p><i class="star-rating"></i><i class="star-rating"></i><i class="star-rating"></i><i
+                                class="star-rating"></i><i class="star-rating"></i></p>
+                        <h5
+                            style="color: var(--platinum-primary); font-size: 1.5rem; line-height: 1.6; margin-bottom: 30px;">
+                            Each of our Platinum rooms feature a private bath, high-speed wifi, premium entertainment
+                            and include full breakfast.</h5>
+                        <div class="reservations mb-30">
+                            <div class="icon color-1"><span class="flaticon-call"></span></div>
+                            <div class="text">
+                                <p class="color-1" style="color: var(--platinum-primary);">Reservation</p>
+                                <a class="color-1" href="tel:9370898800"
+                                    style="color: var(--platinum-gold); font-size: 1.3rem;">9370898800</a>
+                            </div>
+                        </div>
+                        <p><i class="ti-check" style="color: var(--platinum-gold);"></i><small
+                                style="color: var(--platinum-primary);">Call us, it's toll-free.</small></p>
+                    </div>
+
+                    <div class="col-md-5 offset-md-2">
+                        <div class="booking-box">
+                            <div class="head-box">
+                                <h6>Luxury Accommodation</h6>
+                                <h4>Reserve Your Stay</h4>
+                            </div>
+                            <div class="booking-inner clearfix">
+                                <form action="https://duruthemes.com/demo/html/cappa/demo1/rooms2.html"
+                                    class="form1 clearfix">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="input1_wrapper">
+                                                <label>Check in</label>
+                                                <div class="input1_inner">
+                                                    <input type="text" class="form-control input datepicker"
+                                                        placeholder="Check in">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="input1_wrapper">
+                                                <label>Check out</label>
+                                                <div class="input1_inner">
+                                                    <input type="text" class="form-control input datepicker"
+                                                        placeholder="Check out">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="select1_wrapper">
+                                                <label>Adults</label>
+                                                <div class="select1_inner">
+                                                    <select class="select2 select" style="width: 100%">
+                                                        <option value="0">Adults</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="select1_wrapper">
+                                                <label>Children</label>
+                                                <div class="select1_inner">
+                                                    <select class="select2 select" style="width: 100%">
+                                                        <option value="0">Children</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn-form1-submit mt-15">Check
+                                                Availability</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="footer-column footer-about">
+                            <h3 class="footer-title">About Hotel</h3>
+                            <p class="footer-about-text">The Grand Tulip, a business class luxury hotel, located in the
+                                heart of Pune city, follows its legacy from Hotel Tushar already a symbol of true Indian
+                                hospitality since 1984. The Grand Tulip offers high level of service and hospitality as
+                                well as wide range of amenities and upscale facilities creating a warm inviting
+                                environment.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="footer-column footer-explore clearfix">
+                            <h3 class="footer-title">Weather</h3>
+                            <a class="weatherwidget-io" href="https://forecast7.com/en/18d5273d86/pune/"
+                                data-label_1="PUNE" data-label_2="WEATHER" data-theme="original">PUNE WEATHER</a>
+                            <script>
+                                !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = '../weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+                            </script>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="footer-column footer-contact">
+                            <h3 class="footer-title">Contact</h3>
+                            <p class="footer-contact-text">1010, Shukrawar Peth, Swargate Square, B/S Hotel Natraj,
+                                <br>Pune, Maharashtra 411002
+                            </p>
+                            <div class="footer-contact-info">
+                                <p class="footer-contact-phone"><span class="flaticon-call"></span>020 24449922 / 020
+                                    24449955</p>
+                                <p class="footer-contact-mail">contact@thegrandtulip.com</p>
+                            </div>
+                            <div class="footer-about-social-list">
+                                <a href="https://www.instagram.com/accounts/login/"><i class="ti-instagram"></i></a>
+                                <a href="https://twitter.com/"><i class="ti-twitter"></i></a>
+                                <a href="https://www.youtube.com/"><i class="ti-youtube"></i></a>
+                                <a href="https://www.facebook.com/login/"><i class="ti-facebook"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-bottom-inner">
+                            <p class="footer-bottom-copy-right">© Copyright 2022 <a href="https://asiatech.in/"
+                                    alt="">Design by Asiatech.Inc</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/jquery.isotope.v3.0.2.js"></script>
+    <script src="js/pace.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scrollIt.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/YouTubePopUp.js"></script>
+    <script src="js/select2.js"></script>
+    <script src="js/datepicker.js"></script>
+    <script src="js/smooth-scroll.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        // Custom Image Slider
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.querySelector('.room-slider');
+            const images = slider.querySelectorAll('img');
+            const dots = document.querySelectorAll('.slider-dot');
+            const prevBtn = document.querySelector('.slider-arrow.prev');
+            const nextBtn = document.querySelector('.slider-arrow.next');
+            let currentIndex = 0;
+
+            // Show initial image
+            images[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+
+            // Function to show image
+            function showImage(index) {
+                images.forEach(img => img.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                images[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentIndex = index;
+            }
+
+            // Next image
+            function nextImage() {
+                let newIndex = (currentIndex + 1) % images.length;
+                showImage(newIndex);
+            }
+
+            // Previous image
+            function prevImage() {
+                let newIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(newIndex);
+            }
+
+            // Auto-rotate images
+            let slideInterval = setInterval(nextImage, 1000);
+
+            // Pause on hover
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextImage, 1000);
+            });
+
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    showImage(index);
+                    slideInterval = setInterval(nextImage, 1000);
+                });
+            });
+
+            // Arrow navigation
+            nextBtn.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                nextImage();
+                slideInterval = setInterval(nextImage, 1000);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                prevImage();
+                slideInterval = setInterval(nextImage, 1000);
+            });
+        });
+    </script>
+</body>
+
+</html>

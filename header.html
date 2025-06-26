@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lakeview Hero</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+}
+
+/* Top Navbar */
+.top-navbar {
+  background: rgba(143, 141, 141, 0.4);
+  color: #fff;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 20;
+}
+.top-left a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Main Navbar */
+.main-navbar {
+  background: rgba(143, 141, 141, 0.4);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: absolute;
+  width: 100%;
+  top: 40px;
+  z-index: 10;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+.logo {
+  font-size: 28px;
+  font-family: 'Pacifico', cursive;
+  color: #fff;
+}
+
+/* Hero Section */
+.hero-slider {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+/* Each Slide */
+.slide {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Dark Overlay on Each Slide */
+.slide-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Matches navbars */
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Text on Slide */
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+.slide-content h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+.slide-content p {
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Transparent Navbar -->
+  <div class="top-navbar">
+    <div class="top-left">
+      <span>Welcome to Lakeview</span>
+      <a href="#"><i>📅</i> Book Now</a>
+    </div>
+    <div class="top-right">
+      <span>07:30 AM – 11:00 PM</span>
+    </div>
+  </div>
+
+  <!-- Main Transparent Navbar -->
+  <nav class="main-navbar">
+    <ul class="nav-links left-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div class="logo">🌿</div>
+    <ul class="nav-links right-links">
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section with Slider -->
+  <header class="hero-slider">
+    <div class="slide active" style="background-image: url('img/slider/2.jpg');">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <h1>Creative Juice</h1>
+        <p>Indulge in a Honestly Healthy Experience</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('img/slider/3.jpg');">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <h1>Fresh & Organic</h1>
+        <p>Experience the Natural Taste</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('img/slider/4.jpg');">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <h1>Luxury Ambience</h1>
+        <p>Relax with Elegance</p>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    let current = 0;
+const slides = document.querySelectorAll('.slide');
+
+setInterval(() => {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+}, 4000);
+
+  </script>
+</body>
+</html>

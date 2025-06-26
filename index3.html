@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anandvan Resort</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+       
+        /* Hero slider */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            z-index: 1;
+        }
+        
+        .hero-slide {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Logo and navigation */
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 5%;
+            z-index: 10;
+            color: white;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 300;
+            color: white;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+        
+        .logo span {
+            display: block;
+            font-size: 14px;
+            letter-spacing: 8px;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+        
+        /* Menu button */
+        .menu-btn {
+            position: fixed;
+            top: 30px;
+            right: 5%;
+            z-index: 20;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .menu-btn i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        /* Side menu - FIXED POSITIONING (outside slider) */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 30;
+            transition: all 0.3s ease;
+            padding: 100px 40px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .side-menu.active {
+            left: 0;
+        }
+        
+        .side-menu ul {
+            list-style: none;
+        }
+        
+        .side-menu li {
+            margin-bottom: 25px;
+        }
+        
+        .side-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: 400;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .side-menu a:hover {
+            color: #8B6B4A;
+        }
+        
+        /* Hero content - CENTERED */
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            color: white;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .hero-content h2 {
+            font-size: 60px;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            margin: 0 10px 15px;
+            text-transform: uppercase;
+        }
+        
+        .btn:hover {
+            background-color: white;
+            color: #333;
+        }
+        
+        .btn-filled {
+            background-color: #8B6B4A;
+            border-color: #8B6B4A;
+        }
+        
+        .btn-filled:hover {
+            background-color: transparent;
+            color: white;
+        }
+        
+        /* Contact info */
+        .contact-info {
+            position: absolute;
+            bottom: 40px;
+            right: 5%;
+            z-index: 5;
+            color: white;
+            text-align: right;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Slider navigation */
+        .owl-nav {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+        }
+        
+        .owl-prev, .owl-next {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: rgba(255,255,255,0.2) !important;
+            color: white !important;
+            border-radius: 50%;
+            margin: 0 5px;
+            font-size: 20px !important;
+            transition: all 0.3s;
+        }
+        
+        .owl-prev:hover, .owl-next:hover {
+            background: rgba(255,255,255,0.4) !important;
+        }
+        
+        /* Dots navigation */
+        .owl-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        
+        .owl-dot span {
+            background: rgba(255,255,255,0.5) !important;
+        }
+        
+        .owl-dot.active span {
+            background: #8B6B4A !important;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 0 30px;
+            }
+            
+            .hero-content h2 {
+                font-size: 36px;
+            }
+            
+            .side-menu {
+                width: 250px;
+                left: -250px;
+                padding: 80px 30px;
+            }
+            
+            .logo h1 {
+                font-size: 24px;
+            }
+            
+            .logo span {
+                font-size: 12px;
+                letter-spacing: 5px;
+            }
+            
+            .btn {
+                display: block;
+                width: 80%;
+                margin: 0 auto 15px;
+            }
+            
+            .owl-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Side Menu (SINGLE INSTANCE - outside slider) -->
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Discover Bhandardara</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Accommodation</a></li>
+            <li><a href="#">Dining</a></li>
+            <li><a href="#">Wedding & Conferences</a></li>
+            <li><a href="#">Facilities & Activities</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Slider -->
+    <div class="hero-slider owl-carousel owl-theme">
+        <!-- Slide 1 -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')">
+            <div class="hero-overlay"></div>
+            
+            <!-- Logo -->
+            <div class="logo">
+                <h1>anandvan<br><span>RESORT</span></h1>
+                <span>BHANGAROARA</span>
+            </div>
+            
+            <!-- Menu Button -->
+            <button class="menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            
+            <!-- Hero Content - CENTERED -->
+            <div class="hero-content">
+                <h2>the winds of meet a breath of in</h2>
+                <a href="#" class="btn btn-filled">Book Your Stay</a>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')">
+            <div class="hero-overlay"></div>
+            <div class="logo">
+                <h1>anandvan<br><span>RESORT</span></h1>
+                <span>BHANGAROARA</span>
+            </div>
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            <div class="hero-content">
+                <h2>Where the comforts of home</h2>
+                <a href="#" class="btn btn-filled">Book Your Stay</a>
+            </div>
+            <div class="contact-info">
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')">
+            <div class="hero-overlay"></div>
+            <div class="logo">
+                <h1>anandvan<br><span>RESORT</span></h1>
+                <span>BHANGAROARA</span>
+            </div>
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            <div class="hero-content">
+                <h2>Meet the indulgences of a holiday</h2>
+                <a href="#" class="btn btn-filled">Book Your Stay</a>
+            </div>
+            <div class="contact-info">
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        // Initialize when DOM is loaded
+        $(document).ready(function() {
+            // Initialize Owl Carousel with autoplay
+            var slider = $('.hero-slider').owlCarousel({
+                items: 1,
+                loop: true,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                animateOut: 'fadeOut',
+                smartSpeed: 1000,
+                navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+                onInitialized: startAutoplay
+            });
+            
+            // Force autoplay to start (fix for some browsers)
+            function startAutoplay(event) {
+                setTimeout(function() {
+                    slider.trigger('play.owl.autoplay');
+                }, 100);
+            }
+            
+            // Menu toggle functionality
+            const menuBtn = document.getElementById('menuBtn');
+            const sideMenu = document.getElementById('sideMenu');
+            
+            // Add click handlers to all menu buttons
+            document.querySelectorAll('.menu-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    sideMenu.classList.toggle('active');
+                });
+            });
+            
+            // Close menu when clicking anywhere outside
+            document.addEventListener('click', function(e) {
+                if (sideMenu.classList.contains('active')) {
+                    const isMenuButton = Array.from(document.querySelectorAll('.menu-btn')).some(btn => 
+                        btn === e.target || btn.contains(e.target)
+                    );
+                    
+                    if (!sideMenu.contains(e.target) && !isMenuButton) {
+                        sideMenu.classList.remove('active');
+                    }
+                }
+            });
+            
+            // Prevent menu from closing when clicking inside it
+            sideMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malaka Food and Beverages</title>
+  <style>
+    
+
+    .section-food {
+      padding: 60px 20px;
+      position: relative;
+       background: #fff;
+       text-align: center;
+       font-family: 'Segoe UI', sans-serif;
+    }
+
+    .section-food h2 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .section-food p {
+      font-size: 16px;
+      max-width: 500px;
+      margin: 10px auto 20px;
+      line-height: 1.6;
+    }
+
+    .tagline {
+      letter-spacing: 4px;
+      font-size: 12px;
+      color: #a47836;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .star-icon {
+      font-size: 24px;
+      color: #a47836;
+      margin-bottom: 20px;
+    }
+
+    .food-images {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 120px;
+      margin-top: 0px;
+      flex-wrap: wrap;
+    }
+
+    .food-item {
+      max-width: 250px;
+    }
+
+    .food-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 0px;
+    }
+
+    .food-item span {
+      margin-top: 22px;
+      font-size: 30px;
+      color: rgb(56, 54, 54);
+      
+    }
+
+    .corner-left,
+.corner-right {
+  position: absolute;
+  width: 200px; /* Increased size */
+  opacity: 0.6;
+  top: -40px; /* Also moved slightly higher */
+}
+
+.corner-left {
+  left: 0;
+}
+
+.corner-right {
+  right: 0;
+}
+
+.fruit-bg-left,
+.fruit-bg-right {
+  width: 160px; /* Increased size */
+  opacity: 0.4;
+  position: absolute;
+}
+
+.fruit-bg-left {
+  bottom: -20px;
+  left: 80px;
+}
+
+.fruit-bg-right {
+  bottom: -20px;
+  right: 80px;
+}
+
+  </style>
+</head>
+<body>
+  <section class="section-food">
+    <!-- Corner Illustrations -->
+    <img src="img/stickers/broccoli.png" alt="corner-left" class="corner-left" />
+    <img src="img/stickers/footprints.png" alt="corner-right" class="corner-right" />
+
+    <!-- Main Title -->
+    <div class="tagline">REGAL INDULGENCE</div>
+    <div class="star-icon">★</div>
+    <h2>Malaka Food and Beverages</h2>
+
+    <!-- Description -->
+    <p>At Malaka Spice, we believe that every meal should be a journey that tantalizes your taste buds and takes you on an adventure through Southeast Asia.</p>
+    <p>
+      Each meal that you have at Malaka Spice is a result of many culinary tours taken in Malaysia, Indonesia, Thailand, Singapore, Vietnam, Japan and Cambodia.
+      A lot of time was spent exploring the local kitchens in these countries followed by our own innovations, cooking and tasting conducted over and over again to
+      bring to you the perfect creative twist on your plate!
+    </p>
+
+    <!-- Images Grid -->
+    <div class="food-images">
+      <div class="food-item">
+        <img src="img/food/paneer.png" alt="Brunch" />
+        <span>Brunch</span>
+      </div>
+      <div class="food-item" style="margin-top: 60px;">
+        <img src="img/food/samosa.png" alt="Summer Menu" />
+        <span>Summer Menu</span>
+      </div>
+      <div class="food-item">
+        <img src="img/food/drink.png" alt="Summer Cocktails" />
+        <span>Summer Cocktails</span>
+      </div>
+    </div>
+
+    <!-- Bottom Stickers -->
+    <img src="img/stickers/Demo1_image_garlic_349x335.png" alt="Fruit left" class="fruit-bg-left" />
+    <img src="img/stickers/Demo1_images_lemon_246x412.png" alt="Fruit right" class="fruit-bg-right" />
+  </section>
+</body>
+</html>
