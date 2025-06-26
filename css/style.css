@@ -5701,8 +5701,8 @@ select {
         margin-left: 0px;
     }
     .container-fluid{
-        padding: 0px 15px !important;
-        margin-left: -4% !important;
+        padding: 0px 0px !important;
+        margin-left: 0% !important;
     }
     .nav-scroll .logo {
         width: 120px;
