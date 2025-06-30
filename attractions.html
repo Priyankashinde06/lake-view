@@ -29,14 +29,14 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-   <style>
+    <style>
         /* Modern Lawn Section - New Design */
         .lawn-section {
             padding: 100px 0;
             background: #f8f5f2;
             position: relative;
         }
-        
+
         .lawn-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -44,13 +44,13 @@
             align-items: center;
             gap: 50px;
         }
-        
+
         .lawn-image-container {
             flex: 1;
             position: relative;
             min-height: 500px;
         }
-        
+
         .lawn-image {
             position: absolute;
             width: 100%;
@@ -59,12 +59,12 @@
             border-radius: 8px;
             box-shadow: 20px 20px 0 rgba(139, 107, 74, 0.2);
         }
-        
+
         .lawn-content {
             flex: 1;
             padding: 40px;
         }
-        
+
         .lawn-title {
             font-family: 'Gilda Display', serif;
             font-size: 2.5rem;
@@ -72,7 +72,7 @@
             margin-bottom: 20px;
             position: relative;
         }
-        
+
         .lawn-title:after {
             content: '';
             position: absolute;
@@ -82,70 +82,70 @@
             height: 3px;
             background: #8B6B4A;
         }
-        
+
         .lawn-description {
             font-size: 1.1rem;
             line-height: 1.6;
             color: #555;
             margin-bottom: 30px;
         }
-        
+
         .lawn-features {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-        
+
         .feature-item {
             display: flex;
             align-items: flex-start;
             gap: 15px;
         }
-        
+
         .feature-icon {
             color: #8B6B4A;
             font-size: 1.5rem;
             margin-top: 5px;
         }
-        
+
         .feature-text h4 {
             font-family: 'Poppins', sans-serif;
             font-size: 1.1rem;
             margin-bottom: 5px;
             color: #333;
         }
-        
+
         .feature-text p {
             font-size: 0.9rem;
             color: #777;
             line-height: 1.5;
         }
-        
+
         /* Modern Events Section - New Design */
         .events-section {
             padding: 100px 0;
             background: #fff;
         }
-        
+
         .section-header {
             text-align: center;
             margin-bottom: 60px;
         }
-        
+
         .section-header h2 {
             font-family: 'Gilda Display', serif;
             font-size: 2.8rem;
             color: #222;
             margin-bottom: 15px;
         }
-        
+
         .section-header p {
             font-size: 1.1rem;
             color: #777;
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -153,44 +153,44 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .event-card {
             background: #fff;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .event-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
-        
+
         .card-image {
             height: 250px;
             width: 100%;
             object-fit: cover;
         }
-        
+
         .card-content {
             padding: 25px;
         }
-        
+
         .card-content h3 {
             font-family: 'Gilda Display', serif;
             font-size: 1.5rem;
             color: #222;
             margin-bottom: 10px;
         }
-        
+
         .card-content p {
             font-size: 0.95rem;
             color: #666;
             line-height: 1.6;
             margin-bottom: 20px;
         }
-        
+
         .card-button {
             display: inline-block;
             padding: 10px 25px;
@@ -202,37 +202,48 @@
             font-weight: 500;
             transition: background 0.3s;
         }
-        
+
         .card-button:hover {
             background: #7a5d3f;
         }
-        
+
         /* Responsive Adjustments */
         @media (max-width: 992px) {
             .lawn-container {
                 flex-direction: column;
                 gap: 30px;
+                margin-top: -27%;
+
             }
-            
+
             .lawn-image-container {
                 width: 100%;
                 min-height: 400px;
             }
-            
+
             .lawn-content {
-                padding: 20px 0;
+                padding: 0px 30px;
+                margin-top: -11%;
+
             }
-            
+            .lawn-section{
+                margin-bottom: 4% !important;
+            }
+            .events-section{
+                padding: 25px !important;
+            }
             .lawn-features {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         @media (max-width: 768px) {
-            .lawn-title, .section-header h2 {
+
+            .lawn-title,
+            .section-header h2 {
                 font-size: 2rem;
             }
-            
+
             .events-grid {
                 grid-template-columns: 1fr;
             }
@@ -324,19 +335,19 @@
         </div>
         <ul class="weddingList">
             <li>
-                <img src="img/wedding/wedding-1.jpg" data-aos="fade-up">
+                <img src="img/wedding/wedding-1.jpg" data-aos="fade-up" class="wedding-img">
             </li>
             <li>
-                <img src="img/wedding/wedding-2.jpg" data-aos="fade-up" data-aos-delay="1000">
+                <img src="img/wedding/wedding-2.jpg" data-aos="fade-up" data-aos-delay="1000" class="wedding-img">
             </li>
             <li>
-                <img src="img/wedding/wedding-3.jpg" data-aos="fade-up" data-aos-delay="1300">
+                <img src="img/wedding/wedding-3.jpg" data-aos="fade-up" data-aos-delay="1300" class="wedding-img">
             </li>
             <li>
-                <img src="img/wedding/wedding-4.jpg" data-aos="fade-up" data-aos-delay="1700">
+                <img src="img/wedding/wedding-4.jpg" data-aos="fade-up" data-aos-delay="1700" class="wedding-img">
             </li>
             <li>
-                <img src="img/wedding/wedding-5.jpg" data-aos="fade-up" data-aos-delay="2000">
+                <img src="img/wedding/wedding-5.jpg" data-aos="fade-up" data-aos-delay="2000" class="wedding-img">
             </li>
         </ul>
     </section>
@@ -344,7 +355,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="img/wedding/hall.jpg" class="w-100" data-aos="zoom-in-left">
+                    <img src="img/wedding/hall.jpg" class="w-100 hall2 order-2" data-aos="zoom-in-left">
                 </div>
                 <div class="col-md-4 text-center">
                     <ul class="aboutList">
@@ -372,7 +383,7 @@
                     <a href="javascript:void(0)" class="moreBtn" data-aos="zoom-out">Discover More</a>
                 </div>
                 <div class="col-md-4">
-                    <img src="img/wedding/hall2.jpg" class="w-100" data-aos="zoom-in-right">
+                    <img src="img/wedding/hall2.jpg" class="w-100 " data-aos="zoom-in-right">
                 </div>
             </div>
         </div>
@@ -387,7 +398,9 @@
             <div class="lawn-content">
                 <h2 class="lawn-title">Sprawling Lawn for Outdoor Celebrations</h2>
                 <p class="lawn-description">
-                    Enjoy lush green open space for weddings, receptions, and cultural programs. Our premium lawn accommodates over 800 guests with elegant lighting and decor arrangements, creating unforgettable outdoor experiences.
+                    Enjoy lush green open space for weddings, receptions, and cultural programs. Our premium lawn
+                    accommodates over 800 guests with elegant lighting and decor arrangements, creating unforgettable
+                    outdoor experiences.
                 </p>
                 <div class="lawn-features">
                     <div class="feature-item">
@@ -435,14 +448,17 @@
     <section class="events-section">
         <div class="section-header">
             <h2>Corporate Meets & Birthday Bash</h2>
-            <p>Elegant setups for professional events and vibrant themes for birthday celebrations — all under one roof with our expert event planning team.</p>
+            <p>Elegant setups for professional events and vibrant themes for birthday celebrations — all under one roof
+                with our expert event planning team.</p>
         </div>
         <div class="events-grid">
             <div class="event-card" data-aos="fade-up">
                 <img src="img/wedding/wedding-2.jpg" alt="Corporate Event" class="card-image">
                 <div class="card-content">
                     <h3>Corporate Conferences</h3>
-                    <p>Host professional meetings, product launches, and training programs in our tech-enabled conference halls with seamless hospitality and premium catering services tailored to your business needs.</p>
+                    <p>Host professional meetings, product launches, and training programs in our tech-enabled
+                        conference halls with seamless hospitality and premium catering services tailored to your
+                        business needs.</p>
                     <a href="#" class="card-button">Explore Options</a>
                 </div>
             </div>
@@ -450,7 +466,8 @@
                 <img src="img/wedding/wedding-3.jpg" alt="Birthday Party" class="card-image">
                 <div class="card-content">
                     <h3>Birthday Parties</h3>
-                    <p>Celebrate birthdays in style with themed decorations, entertainment, personalized catering, and dedicated event coordinators to make your special day truly memorable and stress-free.</p>
+                    <p>Celebrate birthdays in style with themed decorations, entertainment, personalized catering, and
+                        dedicated event coordinators to make your special day truly memorable and stress-free.</p>
                     <a href="#" class="card-button">Plan Your Event</a>
                 </div>
             </div>
@@ -633,4 +650,5 @@
     <script src="js/custom.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>
