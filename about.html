@@ -199,39 +199,88 @@
 
 
     <!-- Owner Story Section -->
-    <section class="owner-section"
-        style="background-color: #fff; padding: 0px 50px 80px 50px; text-align: center; position: relative;">
-        <div class="container" style=" margin: 0 auto;">
-            <div class="section-subtitle">SHOWCASE</div>
-            <h2 class="section-title" style="font-size: 45px; margin-bottom: 30px;">Soul behind Our Hotel</h2>
-            <p style="font-size: 18px; line-height: 1.7; color: #444;">
-                At Our Hotel, each room and every meal is a heartfelt tribute to our founders’ commitment to excellence.
-                With a focus on comfort, hospitality, and memorable experiences, our founders have worked tirelessly to
-                craft a retreat that
-                feels like home. Their vision and passion are visible in every detail—from the service to the ambiance.
-            </p>
-            <p style="font-size: 18px; line-height: 1.7; color: #444;">
-                Our founders believe in creating not just a place to stay, but a space to connect, unwind, and celebrate
-                life.
-                We invite you to be part of their journey and discover the warmth that makes us unique.
-            </p>
-        </div>
+    <section class="owner-section" style="background: linear-gradient(135deg, #f9f5f0 0%, #fff 50%, #f9f5f0 100%); 
+                padding: 80px 20px 120px; 
+                text-align: center; 
+                position: relative;
+                overflow: hidden;">
 
-        <!-- Owner Photo Styled Like Reference -->
-        <div class="photo-container" style="margin-top: 60px; position: relative;">
-            <div style="display: flex; justify-content: center;">
-                <div style="position: relative; display: inline-block;">
-                    <img src="img/team/image.png" alt="Owner Photo"
-                        style="width: 450px; height: 300px; border: 20px solid white; box-shadow: 0 4px 20px rgba(0,0,0,0.2); " />
-                    <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%);">
-                        <div style="width: 80px; height: 20px; background: #d6c7af; transform: rotate(-2deg);"></div>
+        <!-- Decorative elements -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                background-image: url('img/patterns/soft-dots.png'); 
+                opacity: 0.05; pointer-events: none;"></div>
+
+        <div class="container" style="max-width: 1200px; margin: 0 auto; position: relative;">
+            <!-- Floating badge with subtitle -->
+           
+
+            <h2 class="section-title" style="font-size: 48px; 
+                                       margin-bottom: 30px; 
+                                       color: #3a3329;
+                                       position: relative;
+                                       display: inline-block;">
+                Meet Our Owner
+                <svg style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 80px;"
+                    viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path d="M0,5 Q25,10 50,5 T100,5" stroke="#d6c7af" stroke-width="2" fill="none"
+                        stroke-linecap="round" />
+                </svg>
+            </h2>
+
+            <!-- Content with creative layout -->
+            <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 60px;">
+                <!-- Text content -->
+                <div style="flex: 1; min-width: 300px; text-align: left; position: relative; padding: 0 20px;">
+                    <div style="position: absolute; top: -20px; left: 0; font-size: 80px; color: rgba(214,199,175,0.2); 
+                            font-family: serif; line-height: 1;">"</div>
+
+                    <p
+                        style="font-size: 18px; line-height: 1.8; color: #5a4a3a; margin-bottom: 25px; position: relative;">
+                        At Our Hotel, each room and every meal is a heartfelt tribute to our founders' commitment to
+                        excellence.
+                        Their vision transforms spaces into experiences where comfort meets artistry.
+                    </p>
+
+                    <div style="border-left: 3px solid #d6c7af; padding-left: 20px; margin: 30px 0;">
+                        <p style="font-style: italic; color: #7a6b58; font-size: 16px; line-height: 1.7;">
+                            "We don't just create hotels - we craft backdrops for life's most precious moments."
+                        </p>
+                    </div>
+
+                    <p style="font-size: 18px; line-height: 1.8; color: #5a4a3a;">
+                        Discover the passion behind every detail, from the hand-selected linens to the warm, attentive
+                        service
+                        that makes our guests feel like family.
+                    </p>
+                </div>
+
+                <!-- Photo with creative frame -->
+                <div style="flex: 1; min-width: 300px; max-width: 450px; position: relative;">
+                    <div style="position: relative; z-index: 2;">
+                        <img src="img/team/image.png" alt="Hotel Founders" style="width: 100%; height: auto; border-radius: 5px;
+                                box-shadow: 20px 20px 0 #d6c7af, 
+                                            40px 40px 0 rgba(214,199,175,0.3);">
+                    </div>
+
+                    <!-- Decorative signature -->
+                    <div style="position: absolute; right: 40px; bottom: -40px; 
+                            font-family: 'Dancing Script', cursive; 
+                            font-size: 24px; color: #7a6b58; z-index: 3;">
+                        The Founders
                     </div>
                 </div>
             </div>
 
-            <!-- Footsteps graphic (like your image) -->
-            <img src="img/stickers/footprints.png" alt="Footsteps Graphic"
-                style="position: absolute; right: 0px; bottom: 0; width: 350px; opacity: 0.;" />
+            <!-- Floating decorative elements -->
+            <div style="position: absolute; bottom: -50px; left: 5%; 
+                    width: 100px; height: 100px; 
+                    background: url('img/icons/leaf-pattern.png') no-repeat; 
+                    opacity: 0.1; transform: rotate(15deg);"></div>
+
+            <div style="position: absolute; top: 20%; right: 5%; 
+                    width: 80px; height: 80px; 
+                    border: 2px dashed #d6c7af; 
+                    border-radius: 50%; opacity: 0.3;"></div>
         </div>
     </section>
 
@@ -264,17 +313,15 @@
         </div>
     </section>
 
-    <section class="section-food">
-        <!-- Corner Illustrations -->
+    <!-- <section class="section-food">
         <img src="img/stickers/broccoli.png" alt="corner-left" class="corner-left" />
         <img src="img/stickers/Demo1_image_garlic_349x335.png" alt="corner-right" class="corner-right" />
 
-        <!-- Main Title -->
         <div class="tagline">EXCEPTIONAL HOSPITALITY</div>
         <div class="star-icon">★</div>
         <h2>Our Hotel Expertise</h2>
 
-        <!-- Description -->
+     
         <p>At Lake View, we believe that every stay should be a memorable experience that delights your senses and
             creates lasting impressions.</p>
         <p>
@@ -283,7 +330,7 @@
             luxury standards to bring you the perfect hotel experience.
         </p>
 
-        <!-- Three Images Layout -->
+      
         <div class="three-images-layout">
             <div class="image-item left-item">
                 <img src="img/rooms/1.jpg" alt="Luxury Accommodations" />
@@ -301,10 +348,10 @@
             </div>
         </div>
 
-        <!-- Bottom Stickers -->
+     
         <img src="img/stickers/Demo1_image_garlic_349x335.png" alt="Fruit left" class="fruit-bg-left" />
         <img src="img/stickers/Demo1_images_lemon_246x412.png" alt="Fruit right" class="fruit-bg-right" />
-    </section>
+    </section> -->
 
 
     <!-- Milestones -->
@@ -650,7 +697,7 @@
         });
     </script>
 
-    
+
 
 
 
