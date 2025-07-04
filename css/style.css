@@ -1123,7 +1123,7 @@ blockquote cite:before {
 
 @media (max-width: 768px) {
     .attractions-showcase {
-        padding: 70px 0;
+        margin-top: -22% !important;
     }
 
     .section-heading {
@@ -1134,8 +1134,12 @@ blockquote cite:before {
         font-size: 16px;
     }
 
+    .attraction-mosaic{
+        margin-bottom: 5% !important;
+    }
+
     .mosaic-item {
-        height: 300px;
+        height: 417px;
     }
 
     .card-front,
@@ -7370,7 +7374,7 @@ hr {
 @media(max-width: 1440px) {
     .container-fluid {
         padding: 0px 0px !important;
-        margin-left: 8% !important;
+        margin-left: 8% ;
     }
 }
 
