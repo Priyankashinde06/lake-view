@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>wedding-event</title>
+    <link rel="shortcut icon" href="img/favicon.png" />
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Barlow&amp;family=Barlow+Condensed&amp;family=Gilda+Display&amp;display=swap">
+    <link rel="stylesheet" href="css/plugins.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,500;1,600&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="http://fonts.googleapis.com/css?family=Poppins:400,500%7CTeko:300,400,500%7CMaven+Pro:500">
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        /* Modern Lawn Section - New Design */
+        .lawn-section {
+            padding: 100px 0;
+            background: #f8f5f2;
+            position: relative;
+        }
+
+        .lawn-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .lawn-image-container {
+            flex: 1;
+            position: relative;
+            min-height: 500px;
+        }
+
+        .lawn-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 20px 20px 0 rgba(139, 107, 74, 0.2);
+        }
+
+        .lawn-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .lawn-title {
+            font-family: 'Gilda Display', serif;
+            font-size: 2.5rem;
+            color: #222;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .lawn-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: #8B6B4A;
+        }
+
+        .lawn-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .lawn-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            color: #8B6B4A;
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+
+        .feature-text h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .feature-text p {
+            font-size: 0.9rem;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        /* Modern Events Section - New Design */
+        .events-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Gilda Display', serif;
+            font-size: 2.8rem;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            font-family: 'Gilda Display', serif;
+            font-size: 1.5rem;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-button {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #8B6B4A;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .card-button:hover {
+            background: #7a5d3f;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .lawn-container {
+                flex-direction: column;
+                gap: 30px;
+                margin-top: -27%;
+
+            }
+
+            .lawn-image-container {
+                width: 100%;
+                min-height: 400px;
+            }
+
+            .lawn-content {
+                padding: 0px 30px;
+                margin-top: -11%;
+
+            }
+
+            .lawn-section {
+                margin-bottom: 4% !important;
+            }
+
+            .events-section {
+                padding: 25px !important;
+            }
+
+            .lawn-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .lawn-title,
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-bg"></div>
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="preloader-position loader"> <span></span> </div>
+        </div>
+    </div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Header Banner -->
+    <div class="section-padding valign bg-img bg-fixed" data-overlay-dark="3" data-background="img/wedding/hall.jpg"
+        style="padding: 160px 0px;">
+
+        <!-- Banner Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 caption mt-90">
+                    <h5>The Hotel Lakeview</h5>
+                    <h1>Wedding & Events</h1>
+                    <div class="banner-breadcrumb">
+                        <a href="index.html"><span>Home</span></a>
+                        <i class="fas fa-chevron-right" style="color: white;"></i>
+                        <span>Wedding & Events</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <div class="logo-wrapper navbar-brand valign">
+                <a href="index.html">
+                    <div class="logo">
+                        <img src="img/lakeview_logo.png" class="logo-img" alt="">
+                    </div>
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar"><i class="ti-line-double"></i></span> </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item dropdown"> <span class="nav-link">Stay & Rooms <i
+                                class="ti-angle-down"></i></span>
+                        <ul class="dropdown-menu last">
+                            <li class="dropdown-item"><a href="room.html">Rooms</a></li>
+                            <li class="dropdown-item"><a href="ac-room.html"> AC Rooms</a></li>
+                            <li class="dropdown-item"><a href="tulip-suit.html">Suite</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="facilites.html">Dining & Bar</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="wedding-event.html">Wedding & Events </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="gallery.html"> Gallery </a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="sc-3 sc-8 padd-y" id="wedding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 data-aos="zoom-in-up">Creating Timeless Memories for Every Bride</h2>
+                    <div class="sbheading">
+                        <div class="dvLine"></div>
+                        <h6 data-aos="zoom-in-down">Hotel Weddings & Events & Events</h6>
+                        <div class="dvLine"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="weddingList">
+            <li>
+                <img src="img/wedding/wedding-1.jpg" data-aos="fade-up" class="wedding-img">
+            </li>
+            <li>
+                <img src="img/wedding/wedding-2.jpg" data-aos="fade-up" data-aos-delay="1000" class="wedding-img">
+            </li>
+            <li>
+                <img src="img/wedding/wedding-3.jpg" data-aos="fade-up" data-aos-delay="1300" class="wedding-img">
+            </li>
+            <li>
+                <img src="img/wedding/wedding-4.jpg" data-aos="fade-up" data-aos-delay="1700" class="wedding-img">
+            </li>
+            <li>
+                <img src="img/wedding/wedding-5.jpg" data-aos="fade-up" data-aos-delay="2000" class="wedding-img">
+            </li>
+        </ul>
+    </section>
+    <section class="sc-10 wedding2 padd-y bg-light" id="corporate">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="img/wedding/hall.jpg" class="w-100 hall2 order-2" data-aos="zoom-in-left">
+                </div>
+                <div class="col-md-4 text-center">
+                    <ul class="aboutList">
+                        <li>
+                            <img src="img/wedding/hotel.png">
+                            <div class="listContent">
+                                <h4 data-aos="zoom-in" data-aos-easing="linear" data-aos-delay="1000">7 luxurious
+                                    wedding venues</h4>
+                                <p data-aos="zoom-in" data-aos-easing="linear" data-aos-delay="1300">Discover 7
+                                    luxurious wedding venues featuring pillarless halls for hosting your dream wedding
+                                    like you dreamed.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/wedding/hotel2.png">
+                            <div class="listContent">
+                                <h4 data-aos="zoom-in" data-aos-easing="linear" data-aos-delay="1000"> 2000+ guest
+                                    capacity </h4>
+                                <p data-aos="zoom-in" data-aos-easing="linear" data-aos-delay="1300">Our wedding halls
+                                    can accommodate up to 1110 guests for your grand celebrations so no one is missed
+                                    out.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="javascript:void(0)" class="moreBtn" data-aos="zoom-out">Discover More</a>
+                </div>
+                <div class="col-md-4">
+                    <img src="img/wedding/hall2.jpg" class="w-100 " data-aos="zoom-in-right">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Lawn Section - New Design -->
+    <section class="lawn-section">
+        <div class="lawn-container">
+            <div class="lawn-image-container">
+                <img src="img/wedding/wedding-2.jpg" alt="Lawn Area" class="lawn-image">
+            </div>
+            <div class="lawn-content">
+                <h2 class="lawn-title">Sprawling Lawn for Outdoor Celebrations</h2>
+                <p class="lawn-description">
+                    Enjoy lush green open space for Weddings & Events, receptions, and cultural programs. Our premium
+                    lawn
+                    accommodates over 800 guests with elegant lighting and decor arrangements, creating unforgettable
+                    outdoor experiences.
+                </p>
+                <div class="lawn-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Spacious Natural Setup</h4>
+                            <p>10,000 sq.ft of beautifully landscaped area with perfect natural ambiance</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Custom Themes</h4>
+                            <p>Personalized decoration options to match your unique vision</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Live Performance Area</h4>
+                            <p>Professional stage setup with premium audio equipment</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>All-Weather Options</h4>
+                            <p>Temporary roofing solutions available for any weather conditions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Events Section - New Design -->
+    <section class="events-section">
+        <div class="section-header">
+            <h2>Corporate Meets & Birthday Bash</h2>
+            <p>Elegant setups for professional events and vibrant themes for birthday celebrations — all under one roof
+                with our expert event planning team.</p>
+        </div>
+        <div class="events-grid">
+            <div class="event-card" data-aos="fade-up">
+                <img src="img/wedding/wedding-2.jpg" alt="Corporate Event" class="card-image">
+                <div class="card-content">
+                    <h3>Corporate Conferences</h3>
+                    <p>Host professional meetings, product launches, and training programs in our tech-enabled
+                        conference halls with seamless hospitality and premium catering services tailored to your
+                        business needs.</p>
+                    <a href="#" class="card-button">Explore Options</a>
+                </div>
+            </div>
+            <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="img/wedding/wedding-3.jpg" alt="Birthday Party" class="card-image">
+                <div class="card-content">
+                    <h3>Birthday Parties</h3>
+                    <p>Celebrate birthdays in style with themed decorations, entertainment, personalized catering, and
+                        dedicated event coordinators to make your special day truly memorable and stress-free.</p>
+                    <a href="#" class="card-button">Plan Your Event</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Reservation & Booking Form -->
+    <section class="testimonials">
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg"
+            data-overlay-dark="2">
+            <div class="container">
+                <div class="row">
+                    <!-- Reservation -->
+                    <div class="col-md-5 mb-30 mt-30">
+                        <p><i class="star-rating"></i><i class="star-rating"></i><i class="star-rating"></i><i
+                                class="star-rating"></i><i class="star-rating"></i></p>
+                        <h5>Each of our guest rooms feature a private bath, wi-fi, cable television and include full
+                            breakfast.</h5>
+                        <div class="reservations mb-30">
+                            <div class="icon color-1"><span class="flaticon-call"></span></div>
+                            <div class="text">
+                                <p class="color-1">Reservation</p> <a class="color-1"
+                                    href="tel:9822546664">9822546664</a>
+                            </div>
+                        </div>
+                        <p><i class="ti-check"></i><small>Call us, it's toll-free.</small></p>
+                    </div>
+                    <!-- Booking From -->
+                    <div class="col-md-5 offset-md-2">
+                        <div class="booking-box">
+                            <div class="head-box">
+                                <h6>Rooms & Suites</h6>
+                                <h4>Hotel Booking Form</h4>
+                            </div>
+                            <div class="booking-inner clearfix">
+                                <form action="https://asiatech.in/booking_engine/index3?token=NTM1OA=="
+                                    class="form1 clearfix" method="post">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="input1_wrapper">
+                                                <label>Check in</label>
+                                                <div class="input1_inner">
+                                                    <input type="text" class="form-control input datepicker"
+                                                        placeholder="Check in">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="input1_wrapper">
+                                                <label>Check out</label>
+                                                <div class="input1_inner">
+                                                    <input type="text" class="form-control input datepicker"
+                                                        placeholder="Check out">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="select1_wrapper">
+                                                <label>Adults</label>
+                                                <div class="select1_inner">
+                                                    <select class="select2 select" style="width: 100%">
+                                                        <option value="0">Adults</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="select1_wrapper">
+                                                <label>Children</label>
+                                                <div class="select1_inner">
+                                                    <select class="select2 select" style="width: 100%">
+                                                        <option value="0">Children</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn-form1-submit mt-15">Check
+                                                Availability</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer Top - Decorative Border -->
+        <div class="footer-border">
+            <div class="border-wave"></div>
+        </div>
+
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- About Column -->
+                    <div class="footer-column footer-about">
+                        <div class="footer-logo">
+                            <img src="img/lakeview_logo-removebg-preview.png" alt="Lake View Hotel">
+                        </div>
+                        <p class="footer-about-text text-white">Experience the perfect blend of traditional hospitality
+                            and modern luxury at Lake View Hotel, nestled in the heart of Satara. Our legacy of
+                            exceptional service continues to welcome guests with warmth and elegance.</p>
+
+                        <div class="footer-awards">
+                            <div class="award-badge">
+                                <i class="fas fa-award"></i> Excellence in Hospitality 2023
+                            </div>
+                            <div class="award-badge">
+                                <i class="fas fa-star"></i> TripAdvisor Travelers' Choice
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Column -->
+                    <div class="footer-column footer-links">
+                        <h3 class="footer-title">Explore</h3>
+                        <div class="footer-links-grid">
+                            <ul class="footer-link-group">
+                                <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                                <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                                <li><a href="room.html"><i class="fas fa-chevron-right"></i> Rooms & Suites</a></li>
+                                <li><a href="facilites.html"><i class="fas fa-chevron-right"></i> Dining</a></li>
+                            </ul>
+                            <ul class="footer-link-group">
+                                <li><a href="wedding-event.html"><i class="fas fa-chevron-right"></i> Weddings &
+                                        Events</a></li>
+                                <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                                <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right"></i> Special Offers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact Column -->
+                    <div class="footer-column footer-contact">
+                        <h3 class="footer-title">Get In Touch</h3>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h4>Location</h4>
+                                <p>Rahimatpur - Satara Rd, Godoli, Satara, Maharashtra 415001</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h4>Reservations</h4>
+                                <p><a href="tel:+919822546664">+91 98225 46664</a></p>
+                                <p><a href="tel:+919370898800">+91 93708 98800</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h4>Email</h4>
+                                <p><a href="mailto:contact@lakeview.com">contact@lakeview.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        &copy; <span id="current-year"></span> Lake View Hotel. All Rights Reserved.
+                    </div>
+
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Accessibility</a>
+                    </div>
+
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i class="fab fa-cc-amex" title="American Express"></i>
+                        <i class="fab fa-cc-paypal" title="PayPal"></i>
+                        <i class="fas fa-rupee-sign" title="Cash"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="footer-to-top">
+            <a href="#top" aria-label="Back to top">
+                <i class="fas fa-chevron-up"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/jquery.isotope.v3.0.2.js"></script>
+    <script src="js/pace.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scrollIt.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/YouTubePopUp.js"></script>
+    <script src="js/select2.js"></script>
+    <script src="js/datepicker.js"></script>
+    <script src="js/smooth-scroll.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/script.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var options = {
+                call: "9822546664", // Call phone number
+                whatsapp: "9822546664", // WhatsApp number
+                call_to_action: "Message us", // Call to action
+                button_color: "#E74339", // Color of button
+                position: "left", // Position may be 'right' or 'left'
+                order: "call,whatsapp", // Order of buttons
+            };
+            var proto = 'https:', host = "getbutton.io", url = proto + '//static.' + host;
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+            s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        })();
+        let scrollTimeout;
+        window.addEventListener('scroll', function () {
+            // Close the menu immediately when scrolling starts
+            headerSideMenu.classList.remove('active');
+
+            // Clear any existing timeout
+            clearTimeout(scrollTimeout);
+
+            // Set a timeout to prevent menu reopening during scroll
+            scrollTimeout = setTimeout(function () {
+                // You can add any post-scroll logic here if needed
+            }, 100);
+        });
+
+        const menuItemsWithChildren = document.querySelectorAll('.menu-item-has-children > a');
+
+        menuItemsWithChildren.forEach(item => {
+            item.addEventListener('click', function (e) {
+                e.preventDefault(); // always prevent default
+                const parent = this.parentElement;
+                parent.classList.toggle('active');
+
+                // Close others
+                document.querySelectorAll('.menu-item-has-children').forEach(el => {
+                    if (el !== parent) {
+                        el.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>
